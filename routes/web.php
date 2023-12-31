@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [
+    PostController::class, 'index'
+])->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -47,3 +48,11 @@ Route::get('/admin/users/create',[
 Route::post('/admin/users/create',[
     AdminUsersController::class, 'store'
 ])->name('admin-users-create');
+
+Route::get('/admin/posts/create',[
+    PostController::class, 'create'
+])->name('admin-posts-create')->middleware('auth');
+
+Route::post('/admin/posts/create',[
+    PostController::class, 'store'
+])->name('admin-posts-create')->middleware('auth');
