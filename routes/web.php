@@ -43,3 +43,7 @@ Route::get('/admin/users',[
 Route::get('/admin/users/create',[
     AdminUsersController::class, 'create'
 ])->name('admin-users-create');
+
+Route::post('/admin/users/create',[
+    AdminUsersController::class, 'store'
+])->name('admin-users-create');
