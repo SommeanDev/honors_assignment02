@@ -39,3 +39,7 @@ Route::get('/admin',[
 Route::get('/admin/users',[
     AdminUsersController::class, 'index'
 ])->name('admin-users');
+
+Route::get('/admin/users/create',[
+    AdminUsersController::class, 'create'
+])->name('admin-users-create');
