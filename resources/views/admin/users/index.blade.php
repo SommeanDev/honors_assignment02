@@ -1,10 +1,9 @@
 <x-admin-layout>
     <x-slot name="header">
-        {{ __('Admin Section')}}
+        {{ __('Admin > All Users')}}
     </x-slot>
     <x-slot name="title">
-        {{ __('Admin Section')}}
+        {{ __('Admin | All Users')}}
     </x-slot>
-
-    This is the content of my admin section.
+    This is users section content
 </x-admin-layout>

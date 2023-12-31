@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -33,4 +34,8 @@ require __DIR__.'/auth.php';
 
 Route::get('/admin',[
     AdminController::class, 'index'
-])->middleware('auth')->name('admin');
+])->name('admin');
+
+Route::get('/admin/users',[
+    AdminUsersController::class, 'index'
+])->name('admin-users');
